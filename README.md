@@ -1,4 +1,7 @@
-Descarcati arhiva pentru a vizualiza proiectul.
+#Descarcati arhiva pentru a vizualiza proiectul.
+
+
+
 # Event Management Application
 
 Această aplicație este un sistem de management al evenimentelor care permite utilizatorilor să participe la evenimente, să creeze grupuri de evenimente și să gestioneze participanții. Aplicația include atât partea de front-end cât și back-end, fiind un proiect complet full-stack.
