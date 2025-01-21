@@ -1,0 +1,50 @@
+<div *ngIf="group" class="event-group-container">
+  <h2>Edit Event Group</h2>
+  <form (ngSubmit)="saveGroup()">
+    <div>
+      <label for="name">Group Name:</label>
+      <input id="name" [(ngModel)]="group.name" name="name" required />
+    </div>
+
+    <div>
+      <label for="repeatInterval">Repeat Interval:</label>
+      <input id="repeatInterval" [(ngModel)]="group.repeatInterval" name="repeatInterval" />
+    </div>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <h3>Events in Group</h3>
+  <div class="events-list">
+    <ul>
+      <li *ngFor="let event of events">
+        <strong>{{ event.name }}</strong> - 
+        <span>{{ event.startTime | date: 'short' }}</span> to 
+        <span>{{ event.endTime | date: 'short' }}</span>
+        <div>Access Code: <strong>{{ event.accessCode }}</strong></div>
+      </li>
+    </ul>
+  </div>
+
+  <h3>Add New Event</h3>
+  <form (ngSubmit)="addEvent()">
+    <div>
+      <label for="newEventName">Event Name:</label>
+      <input id="newEventName" [(ngModel)]="newEvent.name" name="newEventName" required />
+    </div>
+
+    <div>
+      <label for="startTime">Start Time:</label>
+      <input id="startTime" [(ngModel)]="newEvent.startTime" name="startTime" type="datetime-local" required />
+    </div>
+
+    <div>
+      <label for="endTime">End Time:</label>
+      <input id="endTime" [(ngModel)]="newEvent.endTime" name="endTime" type="datetime-local" required />
+    </div>
+
+    <button type="submit">Add Event</button>
+  </form>
+
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+</div>

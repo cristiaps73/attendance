@@ -1,0 +1,22 @@
+<div>
+  <h2>Event Details</h2>
+  <p><strong>Name:</strong> {{ event.name }}</p>
+  <p><strong>Start Time:</strong> {{ event.startTime }}</p>
+  <p><strong>End Time:</strong> {{ event.endTime }}</p>
+
+  <h3>Attendees</h3>
+  <ul>
+    <li *ngFor="let attendee of attendees">
+      {{ attendee.name }} ({{ attendee.email }})
+    </li>
+  </ul>
+
+  <h4>Add Attendee</h4>
+  <form (ngSubmit)="addAttendee()">
+    <label>Name:</label>
+    <input [(ngModel)]="newAttendee.name" name="name" required />
+    <label>Email:</label>
+    <input [(ngModel)]="newAttendee.email" name="email" required />
+    <button type="submit">Add Attendee</button>
+  </form>
+</div>

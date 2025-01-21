@@ -1,0 +1,77 @@
+<div class="home-container">
+  <h1>Welcome to Your Dashboard</h1>
+
+  <!-- Evenimentele utilizatorului -->
+  <div class="events-container">
+    <h2>Evenimentele la care participi</h2>
+    
+    <!-- Lista de evenimente pe orizontală cu scroll -->
+    <div class="events-list">
+      <div *ngFor="let event of myEvents" class="event-item">
+        <div class="event-card">
+          <h3>{{ event.eventName }}</h3>
+          <p><strong>Start:</strong> {{ event.startDate | date: 'short' }}</p>
+          <p><strong>End:</strong> {{ event.endDate | date: 'short' }}</p>
+          <p><strong>Status:</strong> {{ event.status }}</p>
+        </div>
+      </div>
+    </div>
+    <ng-template #noEvents>
+      <p>No events found for your account.</p>
+    </ng-template>
+  </div>
+
+  <!-- Mesaje de eroare -->
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+  <!-- Grupurile de evenimente (Tabel cu denumirile grupurilor și butoanele de edit) -->
+  <div class="event-groups">
+    <h2>Your Event Groups</h2>
+    <table class="group-table">
+      <thead>
+        <tr>
+          <th>Group Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let group of myEventGroups" class="group-row">
+          <td>{{ group.name }}</td>
+          <td><button (click)="editEventGroup(group.id)" class="edit-button">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Formular pentru grup nou -->
+  <div class="create-event-group">
+    <h2>Create New Event Group</h2>
+    <form (ngSubmit)="createEventGroup()">
+      <input [(ngModel)]="newGroup.name" name="name" placeholder="Group Name" required class="form-input" />
+      <input [(ngModel)]="newGroup.repeatInterval" name="repeatInterval" placeholder="Repeat Interval" class="form-input" />
+      <button type="submit" class="submit-button">Create Group</button>
+    </form>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div>
+
+  <!-- Formular pentru înregistrare la eveniment -->
+  <div class="registration-form">
+    <h2>Register for Event</h2>
+    <label for="username">Username:</label>
+    <input id="username" [(ngModel)]="username" name="username" required class="form-input" />
+
+    <label for="eventCode">Event Code:</label>
+    <input id="eventCode" [(ngModel)]="eventCode" name="eventCode" required class="form-input" />
+
+    <button (click)="registerForEvent()" class="submit-button">Register</button>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+  </div>
+
+  <!-- Butoane pentru export -->
+  <div class="export-buttons">
+    <button (click)="exportToCSV()" class="export-button">Export My Events to CSV</button>
+    <button (click)="exportCreatedEvents()" class="export-button">Export My Created Events</button>
+    <button (click)="downloadCSV()" class="export-button">Export Events with Attendees</button>
+  </div>
+</div>

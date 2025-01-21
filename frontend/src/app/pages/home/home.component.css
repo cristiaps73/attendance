@@ -1,0 +1,136 @@
+/* Pagina de Home */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9; /* Gri deschis pentru fundal */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #333; /* Text gri închis pentru un contrast bun */
+}
+
+/* Evenimentele utilizatorului */
+.events-container {
+  padding: 20px;
+  background-color: #ffffff; /* Fundal alb pentru secțiunea de evenimente */
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.events-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.event-item {
+  flex-shrink: 0;
+  width: 250px;
+  background-color: #f1f1f1; /* Gri foarte deschis pentru fiecare eveniment */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.event-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.event-card p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+/* Grupurile de evenimente (tabel) */
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.group-table th,
+.group-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.group-table th {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.group-row:hover {
+  background-color: #fafafa;
+}
+
+.edit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+/* Formularele */
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Butoanele de export */
+.export-buttons {
+  margin-top: 30px;
+}
+
+.export-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.export-button:hover {
+  background-color: #0056b3;
+}
+
+/* Mesaje de eroare și succes */
+.error-message {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
